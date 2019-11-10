@@ -1,0 +1,1 @@
+(currencyFormatter) => (value) => currencyFormatter(",", "$", true, value);

@@ -1,0 +1,1 @@
+(numbers) => numbers.reduce((currentMax, cur) => Math.max(currentMax, cur), Number.MIN_SAFE_INTEGER);

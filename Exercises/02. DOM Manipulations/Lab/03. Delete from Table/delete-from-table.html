@@ -1,0 +1,28 @@
+<table border="1" id="customers">
+ <tr><th>Name</th><th>Email</th></tr>
+ <tr><td>Eve</td><td>eve@gmail.com</td></tr>
+ <tr><td>Nick</td><td>nick@yahooo.com</td></tr>
+ <tr><td>Didi</td><td>didi@didi.net</td></tr>
+ <tr><td>Tedy</td><td>tedy@tedy.com</td></tr>
+</table>
+Email: <input type="text" name="email" />
+<button onclick="deleteByEmail()">Delete</button>
+<div id="result" />
+<script>
+	function deleteByEmail() {
+		let emailToDelete = document.querySelector('input[name="email"]').value;
+		let emails = document.querySelectorAll('table#customers tr td:last-child');
+		
+		let foundEmail = [...emails].filter(e => e.textContent === emailToDelete)[0];
+		
+		if (!foundEmail) {
+			document.getElementById('result').textContent = 'Not found.';
+		} else {
+			document.getElementById('customers')
+				.children[0]
+				.removeChild(foundEmail.parentNode);
+				
+			document.getElementById('result').textContent = 'Deleted';
+		}
+	}
+</script>
